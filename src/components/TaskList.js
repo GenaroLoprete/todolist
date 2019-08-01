@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Task from './Task';
 //Es mas claro declararlo como const cuando es funcional y conarrwo funcion
 //poniendo un poco mas en practica la destructuracion
 const TaskList = (props) => {
@@ -6,9 +7,7 @@ const TaskList = (props) => {
     return props.tasks.map(({ description }, index) => (
         <Fragment key={index}>
             <hr></hr>
-            <div className="row alert alert-warning">
-                {description}
-            </div>
+            <Task description={description}/>
         </Fragment>
 
     ));
