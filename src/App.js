@@ -15,12 +15,22 @@ class App extends React.Component {
       ]
     }
   }
+  addTask = (description) => {
+    let { tasks } = this.state;
+
+    let newTasks =[...tasks];
+    newTasks.push({description});
+
+    this.setState({tasks: newTasks})
+   //this.setState({ tasks: [...tasks].push({ description: description }) });
+    //es mejor practica asignarle un objeto clonado con el dato nuevo a trabajar sobre el mismo, mas eficiente
+  }
 
   render() {
     const { tasks } = this.state;
     return (
       <div className="container mt-5">
-        <TaskForm>
+        <TaskForm addTask={this.addTask}>
 
 
         </TaskForm>
