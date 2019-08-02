@@ -1,7 +1,8 @@
 import React from 'react';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
-
+import { connect } from 'react-redux';
+import * as taskActions from './redux/actions/taskActions';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,18 +17,20 @@ class App extends React.Component {
     }
   }
   addTask = (description) => {
-    let { tasks } = this.state;
+    //   let { tasks } = this.state;
 
-    let newTasks =[...tasks];
-    newTasks.push({description});
+    //   let newTasks =[...tasks];
+    //   newTasks.push({description});
 
-    this.setState({tasks: newTasks})
-   //this.setState({ tasks: [...tasks].push({ description: description }) });
+    //   this.setState({tasks: newTasks})
+    //  this.setState({ tasks: [...tasks].push({ description: description }) });
     //es mejor practica asignarle un objeto clonado con el dato nuevo a trabajar sobre el mismo, mas eficiente
+
+    this.props.dispatch(taskActions.createTask({description}));
   }
 
   render() {
-    const { tasks } = this.state;
+    const { tasks } = this.props;
     return (
       <div className="container mt-5">
         <TaskForm addTask={this.addTask}>
@@ -41,5 +44,12 @@ class App extends React.Component {
     );
   }
 }
+//mapea el state a props (literal)
+function mapStateToPros(state) {
+  return {
+    tasks: state.tasks
+  }
+}
 
-export default App;
+export default connect(mapStateToPros)(App);
+//connect devuelve una funcion que

@@ -22,7 +22,7 @@ class Task extends React.Component {
                 && //Es lo mismo que yo haga un if pero sin un else
                 <button
                     type="button"
-                    class="close"
+                    className="close"
                     aria-label="Close"
                     style={{ outline: "none" }}
                     onClick={this.markAsDone}>
