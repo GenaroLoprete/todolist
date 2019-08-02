@@ -52,4 +52,4 @@ function mapStateToPros(state) {
 }
 
 export default connect(mapStateToPros)(App);
-//connect devuelve una funcion que
+//podemos probar  para seguir practicando, hacer el remove con este metodo
