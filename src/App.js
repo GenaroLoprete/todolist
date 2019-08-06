@@ -29,6 +29,13 @@ class App extends React.Component {
     this.props.dispatch(taskActions.createTask({description}));
   }
 
+  deleteTask = (id) => {
+    
+    //es mejor practica asignarle un objeto clonado con el dato nuevo a trabajar sobre el mismo, mas eficiente
+
+    this.props.dispatch(taskActions.deleteTask(id));
+  }
+
   render() {
     const { tasks } = this.props;
     return (
@@ -37,7 +44,7 @@ class App extends React.Component {
 
 
         </TaskForm>
-        <TaskList tasks={tasks}>
+        <TaskList tasks={tasks} deleteTask={this.deleteTask}>
 
         </TaskList>
       </div>

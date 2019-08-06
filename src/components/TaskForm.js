@@ -7,6 +7,7 @@ class TaskForm extends React.Component {
         }
     }
     submitAddTask = (event) => {
+        
         event.preventDefault();
 
         const{addTask} = this.props;

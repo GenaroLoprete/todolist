@@ -6,3 +6,10 @@ export function createTask(task){
         task
     }
 }
+//siempre retornan un json con un atributo type
+export function deleteTask(id){
+    return {
+        type: "DELETE_TASK", //standar, lo mismo que la funcion, separado con guisn bajo y mayusculas
+        id 
+    }
+}
